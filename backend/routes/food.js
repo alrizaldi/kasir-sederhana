@@ -34,12 +34,12 @@ app.post(
   body("name").notEmpty().withMessage("name can't empty!"),
   body("price").notEmpty().withMessage("price can't empty!"),
   async (req, res) => {
-    const apiKey = req.get("apiKEY");
-    if (apiKey != process.env.apiKEY) {
-      return res.status(401).json({
-        message: "Unauthorized",
-      });
-    }
+    // const apiKey = req.get("apiKEY");
+    // if (apiKey != process.env.apiKEY) {
+    //   return res.status(401).json({
+    //     message: "Unauthorized",
+    //   });
+    // }
     const result = validationResult(req);
     if (!result.isEmpty()) {
       return res.status(400).json({ errors: result.array() });
